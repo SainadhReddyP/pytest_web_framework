@@ -5,6 +5,7 @@ class SearchPage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.driver.implicitly_wait(10)
 
     # Locators
     galaxy_product_xpath = "//h3[text()='Galaxy S22']"

@@ -4,12 +4,14 @@ from selenium.webdriver.common.by import By
 class HomePage:
     def __init__(self, driver):
         self.driver = driver
+        self.driver.implicitly_wait(10)
 
     # Locators
     your_store_btn_xpath = "//button[text()='Your Store']"
     search_box_xpath = "//input[@id='searchQuery']"
     search_btn_xpath = "//button[text()='Search']"
     login_btn_xpath = "//button[text()='Login']"
+    register_btn_xpath = "//button[text()='Register']"
 
     def click_on_store_button(self):
         self.driver.find_element(By.XPATH, self.your_store_btn_xpath).click()
@@ -24,3 +26,6 @@ class HomePage:
 
     def click_on_login_button(self):
         self.driver.find_element(By.XPATH, self.login_btn_xpath).click()
+
+    def click_on_register_button(self):
+        self.driver.find_element(By.XPATH, self.register_btn_xpath).click()

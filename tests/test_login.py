@@ -16,7 +16,7 @@ class TestLogin:
         login_pg.click_on_login_button()
         expected_text = "Your login is successful."
         account_pg = AccountPage(self.driver)
-        assert account_pg.retrieve_successful_login_message().text.__eq__(expected_text)
+        assert account_pg.retrieve_successful_login_message().__eq__(expected_text)
     
     def test_login_with_invalid_email_and_valid_password(self):
         home_pg = HomePage(self.driver)
