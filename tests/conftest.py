@@ -18,6 +18,7 @@ def setup_and_teardown(request):
 
     driver.maximize_window()
     url = ReadConfigurations.read_configuration("basic_info", "url")
+    driver.get(url)
     request.cls.driver = driver # class level using the fixture
     yield
     driver.quit()
