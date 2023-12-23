@@ -24,3 +24,7 @@ class LoginPage:
 
     def retrieve_login_error_message(self):
         return self.driver.find_element(By.XPATH, self.login_error_msg_xpath).text
+
+    def login_to_application(self, username, password):
+        self.enter_login_credentials(username, password)
+        return self.click_on_login_button()
