@@ -8,8 +8,7 @@ import pytest
 class TestRegister:
     def test_register_with_mandatory_fields(self):
         home_pg = HomePage(self.driver)
-        home_pg.click_on_register_button()
-        register_pg = RegisterPage(self.driver)
+        register_pg = home_pg.click_on_register_button()
         register_pg.enter_first_name("Sainadh")
         register_pg.enter_last_name("Reddy")
         register_pg.select_gender("Male")
@@ -17,15 +16,13 @@ class TestRegister:
         register_pg.enter_password("Python@123")
         register_pg.enter_phone_number("1234567890")
         register_pg.clicks_on_privacy_policy()
-        register_pg.clicks_on_submit_button()
+        account_success_pg = register_pg.clicks_on_submit_button()
         expected_msg = "Your account has been created successfully."
-        account_success_pg = AccountSuccessPage(self.driver)
         assert account_success_pg.retrieve_account_creation_message().__contains__(expected_msg)
 
     def test_register_with_all_fields(self):
         home_pg = HomePage(self.driver)
-        home_pg.click_on_register_button()
-        register_pg = RegisterPage(self.driver)
+        register_pg = home_pg.click_on_register_button()
         register_pg.enter_first_name("Sainadh")
         register_pg.enter_last_name("Reddy")
         register_pg.select_gender("Male")
@@ -34,15 +31,13 @@ class TestRegister:
         register_pg.enter_phone_number("1234567890")
         register_pg.enter_address("Hyderabad")
         register_pg.clicks_on_privacy_policy()
-        register_pg.clicks_on_submit_button()
+        account_success_pg = register_pg.clicks_on_submit_button()
         expected_msg = "Your account has been created successfully."
-        account_success_pg = AccountSuccessPage(self.driver)
         assert account_success_pg.retrieve_account_creation_message().__contains__(expected_msg)
 
     def test_register_with_duplicate_email(self):
         home_pg = HomePage(self.driver)
-        home_pg.click_on_register_button()
-        register_pg = RegisterPage(self.driver)
+        register_pg = home_pg.click_on_register_button()
         register_pg.enter_first_name("Sainadh")
         register_pg.enter_last_name("Reddy")
         register_pg.select_gender("Male")
@@ -57,8 +52,7 @@ class TestRegister:
 
     def test_register_with_invalid_phone_number(self):
         home_pg = HomePage(self.driver)
-        home_pg.click_on_register_button()
-        register_pg = RegisterPage(self.driver)
+        register_pg = home_pg.click_on_register_button()
         register_pg.enter_first_name("Sainadh")
         register_pg.enter_last_name("Reddy")
         register_pg.select_gender("Male")

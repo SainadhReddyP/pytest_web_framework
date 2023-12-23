@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from pages.account_success_page import AccountSuccessPage
 
 
 class RegisterPage:
@@ -46,6 +47,7 @@ class RegisterPage:
 
     def clicks_on_submit_button(self):
         self.driver.find_element(By.XPATH, self.submit_btn_xpath).click()
+        return AccountSuccessPage(self.driver)
 
     def enter_address(self, location):
         self.driver.find_element(By.NAME, self.address_name).send_keys(location)
