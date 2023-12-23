@@ -19,6 +19,7 @@ class RegisterPage:
     submit_btn_xpath = "//input[@value='Submit']"
     address_name = "address"
     email_error_xpath = "//div[@id='emailError']"
+    phone_number_error_msg_xpath = "//div[@id='phoneNumberError']"
 
     def enter_first_name(self, firstname):
         self.driver.find_element(By.ID, self.firstname_id).send_keys(firstname)
@@ -51,3 +52,7 @@ class RegisterPage:
 
     def retrieve_duplicate_email_message(self):
         return self.driver.find_element(By.XPATH, self.email_error_xpath).text
+
+    def retrieve_invalid_phone_number(self):
+        return self.driver.find_element(By.XPATH, self.phone_number_error_msg_xpath).text
+
