@@ -28,7 +28,7 @@ class HomePage:
         self.driver.find_element(By.XPATH, self.search_btn_xpath).click()
         return SearchPage(self.driver)
 
-    def click_on_login_button(self):
+    def click_on_login_option(self):
         self.driver.find_element(By.XPATH, self.login_btn_xpath).click()
         return LoginPage(self.driver)
 
