@@ -1,11 +1,12 @@
 from selenium.webdriver.common.by import By
 from pages.account_page import AccountPage
+from pages.base_page import BasePage
 
 
-class LoginPage:
+class LoginPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
         self.driver.implicitly_wait(10)
 
     # Locators
@@ -15,15 +16,15 @@ class LoginPage:
     login_error_msg_xpath = "//div[@id='loginError']"
 
     def enter_login_credentials(self, username, password):
-        self.driver.find_element(By.ID, self.username_id).send_keys(username)
-        self.driver.find_element(By.ID, self.password_id).send_keys(password)
+        self.set_text(self.username_id, username)
+        self.set_text(self.password_id, password)
 
     def click_on_login_button(self):
-        self.driver.find_element(By.XPATH, self.login_btn_xpath).click()
+        self.click_element(self.login_btn_xpath)
         return AccountPage(self.driver)
 
     def retrieve_login_error_message(self):
-        return self.driver.find_element(By.XPATH, self.login_error_msg_xpath).text
+        return self.get_text(self.login_error_msg_xpath)
 
     def login_to_application(self, username, password):
         self.enter_login_credentials(username, password)

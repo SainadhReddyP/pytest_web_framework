@@ -1,10 +1,11 @@
 from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
 
 
-class SearchPage:
+class SearchPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
         self.driver.implicitly_wait(10)
 
     # Locators
@@ -12,7 +13,7 @@ class SearchPage:
     invalid_product_msg_xpath = "//div[@id='resultsContainer']/p"
 
     def display_status_of_valid_product(self):
-        return self.driver.find_element(By.XPATH, self.galaxy_product_xpath).is_displayed()
+        return self.check_display_status_of_element(self.galaxy_product_xpath)
 
     def retrieve_invalid_product_message(self):
-        return self.driver.find_element(By.XPATH, self.invalid_product_msg_xpath).text
+        return self.get_text(self.invalid_product_msg_xpath)

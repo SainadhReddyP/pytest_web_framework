@@ -31,3 +31,11 @@ class BasePage:
         elif locator.__contains__("_css"):
             element = self.driver.find_element(By.CSS_SELECTOR, locator)
         return element
+
+    def check_display_status_of_element(self, locator):
+        element = self.get_element(locator)
+        return element.is_displayed()
+
+    def get_text(self, locator):
+        element = self.get_element(locator)
+        return element.text
