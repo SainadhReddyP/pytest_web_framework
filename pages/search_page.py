@@ -13,7 +13,7 @@ class SearchPage(BasePage):
     invalid_product_msg_xpath = "//div[@id='resultsContainer']/p"
 
     def display_status_of_valid_product(self):
-        return self.check_display_status_of_element(self.galaxy_product_xpath)
+        return self.check_display_status_of_element("galaxy_product_xpath", self.galaxy_product_xpath)
 
     def retrieve_invalid_product_message(self):
-        return self.get_text(self.invalid_product_msg_xpath)
+        return self.get_text("invalid_product_msg_xpath", self.invalid_product_msg_xpath)

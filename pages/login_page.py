@@ -16,15 +16,15 @@ class LoginPage(BasePage):
     login_error_msg_xpath = "//div[@id='loginError']"
 
     def enter_login_credentials(self, username, password):
-        self.set_text(self.username_id, username)
-        self.set_text(self.password_id, password)
+        self.set_text("username_id", self.username_id, username)
+        self.set_text("password_id", self.password_id, password)
 
     def click_on_login_button(self):
-        self.click_element(self.login_btn_xpath)
+        self.click_element("login_btn_xpath", self.login_btn_xpath)
         return AccountPage(self.driver)
 
     def retrieve_login_error_message(self):
-        return self.get_text(self.login_error_msg_xpath)
+        return self.get_text("login_error_msg_xpath", self.login_error_msg_xpath)
 
     def login_to_application(self, username, password):
         self.enter_login_credentials(username, password)

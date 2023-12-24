@@ -12,4 +12,4 @@ class AccountPage(BasePage):
     login_success_xpath = "//div[@id='loginSuccess']/p"
 
     def retrieve_successful_login_message(self):
-        return self.get_text(self.login_success_xpath)
+        return self.get_text("login_success_xpath", self.login_success_xpath)

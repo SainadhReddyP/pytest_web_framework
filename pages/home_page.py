@@ -18,21 +18,21 @@ class HomePage(BasePage):
     register_btn_xpath = "//button[text()='Register']"
 
     def click_on_store_button(self):
-        self.click_element(self.your_store_btn_xpath)
+        self.click_element("your_store_btn_xpath", self.your_store_btn_xpath)
 
     def enter_product_into_search_box(self, product_name):
-        self.set_text(self.search_box_xpath, product_name)
+        self.set_text("search_box_xpath", self.search_box_xpath, product_name)
 
     def click_on_search_button(self):
-        self.click_element(self.search_btn_xpath)
+        self.click_element("search_btn_xpath", self.search_btn_xpath)
         return SearchPage(self.driver)
 
     def click_on_login_option(self):
-        self.click_element(self.login_btn_xpath)
+        self.click_element("login_btn_xpath", self.login_btn_xpath)
         return LoginPage(self.driver)
 
     def click_on_register_button(self):
-        self.click_element(self.register_btn_xpath)
+        self.click_element("register_btn_xpath", self.register_btn_xpath)
         return RegisterPage(self.driver)
 
     def search_for_a_product(self, product_name):
