@@ -1,6 +1,4 @@
 from pages.home_page import HomePage
-from pages.login_page import LoginPage
-from pages.account_page import AccountPage
 from datetime import datetime
 import pytest
 

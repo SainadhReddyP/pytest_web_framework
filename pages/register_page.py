@@ -58,3 +58,15 @@ class RegisterPage:
     def retrieve_invalid_phone_number(self):
         return self.driver.find_element(By.XPATH, self.phone_number_error_msg_xpath).text
 
+    def register_account(self, first_name, last_name, gender, email_address, password, phone_number, address=None):
+        self.enter_first_name(first_name)
+        self.enter_last_name(last_name)
+        self.select_gender(gender)
+        self.enter_email_address(email_address)
+        self.enter_password(password)
+        self.enter_phone_number(phone_number)
+        if address:
+            self.enter_address(address)
+        self.clicks_on_privacy_policy()
+        self.clicks_on_submit_button()
+        return AccountSuccessPage(self.driver)
