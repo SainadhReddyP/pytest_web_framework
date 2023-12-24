@@ -18,17 +18,17 @@ class BasePage:
 
     def get_element(self, locator_name, locator):
         element = None
-        if locator_name.__contains__("_id"):
+        if locator_name.endswith("_id"):
             element = self.driver.find_element(By.ID, locator)
-        elif locator_name.__contains__("_name"):
+        elif locator_name.endswith("_name"):
             element = self.driver.find_element(By.NAME, locator)
-        elif locator_name.__contains__("_class_name"):
+        elif locator_name.endswith("_class_name"):
             element = self.driver.find_element(By.CLASS_NAME, locator)
-        elif locator_name.__contains__("_link_text"):
+        elif locator_name.endswith("_link_text"):
             element = self.driver.find_element(By.LINK_TEXT, locator)
-        elif locator_name.__contains__("_xpath"):
+        elif locator_name.endswith("_xpath"):
             element = self.driver.find_element(By.XPATH, locator)
-        elif locator_name.__contains__("_css"):
+        elif locator_name.endswith("_css"):
             element = self.driver.find_element(By.CSS_SELECTOR, locator)
         return element
 
