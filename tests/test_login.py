@@ -1,13 +1,16 @@
 from pages.home_page import HomePage
-from datetime import datetime
 from tests.base_test import BaseTest
+from utilities import excel_utils
+import pytest
 
 
 class TestLogin(BaseTest):
-    def test_login_with_valid_credentials(self):
+
+    @pytest.mark.parametrize("username, password", excel_utils.get_data_from_excel("testdata/sdetqa_portal.xlsx","Login"))
+    def test_login_with_valid_credentials(self, username, password):
         home_pg = HomePage(self.driver)
         login_pg = home_pg.click_on_login_option()
-        account_pg = login_pg.login_to_application("sainadhreddy", "automation100%")
+        account_pg = login_pg.login_to_application(username, password)
         expected_text = "Your login is successful."
         assert account_pg.retrieve_successful_login_message().__eq__(expected_text)
     
