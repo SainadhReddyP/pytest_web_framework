@@ -8,7 +8,6 @@ class RegisterPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.implicitly_wait(10)
 
     # Locators
     firstname_id = "firstName"

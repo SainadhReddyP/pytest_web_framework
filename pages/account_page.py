@@ -6,7 +6,6 @@ class AccountPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.implicitly_wait(10)
 
     # Locators
     login_success_xpath = "//div[@id='loginSuccess']/p"

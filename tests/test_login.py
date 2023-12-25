@@ -1,10 +1,9 @@
 from pages.home_page import HomePage
 from datetime import datetime
-import pytest
+from tests.base_test import BaseTest
 
 
-@pytest.mark.usefixtures("setup_and_teardown")
-class TestLogin:
+class TestLogin(BaseTest):
     def test_login_with_valid_credentials(self):
         home_pg = HomePage(self.driver)
         login_pg = home_pg.click_on_login_option()

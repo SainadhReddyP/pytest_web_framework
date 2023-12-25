@@ -8,7 +8,6 @@ from pages.base_page import BasePage
 class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.implicitly_wait(10)
 
     # Locators
     your_store_btn_xpath = "//button[text()='Your Store']"

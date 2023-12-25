@@ -1,9 +1,8 @@
 from pages.home_page import HomePage
-import pytest
+from tests.base_test import BaseTest
 
 
-@pytest.mark.usefixtures("setup_and_teardown")
-class TestRegister:
+class TestRegister(BaseTest):
     def test_register_with_mandatory_fields(self):
         home_pg = HomePage(self.driver)
         register_pg = home_pg.click_on_register_button()

@@ -7,7 +7,6 @@ class LoginPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.implicitly_wait(10)
 
     # Locators
     username_id = "username"

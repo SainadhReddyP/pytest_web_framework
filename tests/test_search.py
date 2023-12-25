@@ -1,9 +1,8 @@
 from pages.home_page import HomePage
-import pytest
+from tests.base_test import BaseTest
 
 
-@pytest.mark.usefixtures("setup_and_teardown")
-class TestSearch:
+class TestSearch(BaseTest):
     def test_search_for_a_valid_product(self):
         home_pg = HomePage(self.driver)
         home_pg.click_on_store_button()

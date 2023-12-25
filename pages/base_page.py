@@ -5,6 +5,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.driver.implicitly_wait(10)
 
     def set_text(self, locator_name, locator, send_text):
         element = self.get_element(locator_name, locator)
