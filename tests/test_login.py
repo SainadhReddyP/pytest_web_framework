@@ -32,6 +32,3 @@ class TestLogin(BaseTest):
         expected_message = "Incorrect credentials. Please enter valid username and password."
         assert login_pg.retrieve_login_error_message().__eq__(expected_message)
     
-    def generate_email_with_timestamp(self):
-        time_stamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        return "sainadh"+time_stamp+"@gmail.com"
